@@ -44,7 +44,7 @@ class SortedADTTest {
 		assertEquals(new Integer(3), output);
 	}
 	
-	//todo: Complete with other test to assure that Finds is correctly implemented
+	//todo: Complete with other test to assure that Find is correctly implemented
 	
 	
 	/*
