@@ -4,32 +4,32 @@ package stacksandqueues;
 //FIFO First in - First Out Stack
 //FIFO are a special type of  Stackescalled Queue.
 public class FIFOStack {
-	private StackNode root;
+	private StackNode top;
 	
 	public FIFOStack() {
-		root = null;
+		top = null;
 		
 	} 
 	
 	public void push(Object o) {
-		if (root == null) {
+		if (top == null) {
 			StackNode newNode = new StackNode(o);
-			root = newNode;
+			top = newNode;
 		}
 		else {
 			StackNode newNode = new StackNode(o);
-			root.setNext(newNode);
+			top.setNext(newNode);
 		}
 		
 	}
 	
 	public Object pop() {
-		if (root == null) {
+		if (top == null) {
 			return null;
 		}
 		else {
-			Object toPop = root.getData();
-			root = root.getNext();
+			Object toPop = top.getData();
+			top = top.getNext();
 			return toPop;
 		}	
 	}
