@@ -2,6 +2,7 @@ package queue;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class TestQueues {
@@ -76,4 +77,45 @@ class TestQueues {
 		assertEquals(new Integer(4), (Integer) queue.dequeue());
 	}
 
+	/*
+	 * Regarding the assert failing to execut today.
+	 * I did not have a Test Case that produed the combinations needed to execute that code
+	 * The line: assert(this.top  == 50);  in Enqueue is  commented to allow the test to pass.
+	 * Un comment it to see the behaviour-
+	 * 
+	 * Also, Make sure you have  the compiler check for assertions. see:
+	 * https://stackoverflow.com/questions/5509082/eclipse-enable-assertions
+	 * 
+	 * Finally see the code below, the trycatch statement.
+	 * Exceptions are not expected in that code. Theerefore, I catch  it and force a "fail".
+	 *  
+	 */
+	@Test
+	void TestQueueFull()  {
+		Integer one = new Integer(1);
+		String secondItem = "SecondItem";
+		Integer three = 3;
+		
+		iQueue queue = new ArrayQueue(3);
+		
+		try {
+			queue.enqueue(one);
+			queue.enqueue(secondItem);
+			queue.enqueue(three);
+		}
+		catch(ArrayException ae) {
+			fail("Should not  throw exception until its full");
+		}
+		
+		//This line tells JUnit to expect the exception 
+		Assertions.assertThrows(ArrayException.class, () -> {
+			queue.enqueue(new Integer(4));
+		  });
+		
+		
+		
+		
+		
+		
+	}
 }
