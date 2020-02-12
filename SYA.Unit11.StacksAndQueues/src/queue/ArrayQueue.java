@@ -17,9 +17,11 @@ public class ArrayQueue implements iQueue{
 	 * 	 */
 	@Override
 	public void enqueue(Object o) throws ArrayException {
+		//if (this.top == this.tail) {
 		if (this.queueImpl[tail]!=null) {
 			//Full, TOP and Tail are the same number
 			assert(this.top == this.tail);
+			//assert(this.top  == 50);
 			throw new ArrayException();
 		}
 		else {
@@ -37,7 +39,7 @@ public class ArrayQueue implements iQueue{
 		Object output = this.queueImpl[top];
 		this.queueImpl[top] = null;
 		this.top++;
-		if (this.top > (this.queueImpl.length)) {
+		if (this.top == (this.queueImpl.length)) {
 			this.top = 0;
 		}
 		return output;
