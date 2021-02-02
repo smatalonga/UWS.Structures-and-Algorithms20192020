@@ -47,7 +47,7 @@ public class CompanyListTest {
 	private static void showMenu() {
 		System.out.println("(1) Add company to list");
 		System.out.println("(2) Display the company");
-		System.out.println("(3) Display the company");
+		System.out.println("(3) Sort");
 		System.out.println("(10) Quit");
 	}
 
